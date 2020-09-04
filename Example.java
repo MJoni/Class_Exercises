@@ -15,34 +15,29 @@ public class Example{
     int [] arr = {1000000000, 1000000, 1000,100, 20};
 
     if(arr[0]<= realNumbers){
-      System.out.println("do something");
       System.out.println(getBigDic(realNumbers));
 
     }else if(arr[1]<= realNumbers){
-      System.out.println("case 1000000");
       System.out.println(getBigDic(realNumbers));
 
     }else if (arr[2]<= realNumbers){
-      System.out.println("case 1000");
       System.out.println(getBigDic(realNumbers));
 
     }else if(arr[3]<= realNumbers){
-      System.out.println("case 100");
       System.out.println(getBigDic(realNumbers));
 
-
     }else if(arr[4]<=realNumbers) {
-      System.out.println("case 20");
       System.out.println(getTenthDic(realNumbers));
 
     }else{
-      System.out.println("case 10");
       System.out.println(getNumDic(realNumbers));
     }
+
     printDigit();
   }
 
   private String getNumDic(int num){
+
     Map<Integer, String> numDic = new TreeMap<Integer, String>(Collections.reverseOrder());
     numDic.put(1,"one");
     numDic.put(2,"two");
@@ -56,18 +51,18 @@ public class Example{
     numDic.put(10,"ten");
     numDic.put(11,"eleven");
     numDic.put(12,"twelve");
-    numDic.put(13,"twelve");
-    numDic.put(14,"twelve");
-    numDic.put(15,"twelve");
-    numDic.put(16,"twelve");
-    numDic.put(17,"twelve");
-    numDic.put(18,"twelve");
+    numDic.put(13,"thirteen");
+    numDic.put(14,"fourteen");
+    numDic.put(15,"fifteen");
+    numDic.put(16,"sixteen");
+    numDic.put(17,"seventeen");
+    numDic.put(18,"eighteen");
     numDic.put(19,"nineteen");
 
-    String str = mapIterator(numDic, num);
-    return str;
+    return mapIterator(numDic, num);
 
   }
+
   private String getBigDic(int realNumbers){
     int temp, reminder;
 
@@ -80,14 +75,10 @@ public class Example{
 
 
     for (Map.Entry<Integer,String> entry : dic.entrySet()){
-      if(realNumbers>=entry.getKey()){
-        System.out.println(entry.getKey());
 
+      if(realNumbers>=entry.getKey()){
         temp = realNumbers/entry.getKey();
         reminder = realNumbers%entry.getKey();
-
-        System.out.println(reminder);
-
 
         if(temp<20){
           setString(getNumDic(temp)+" "+ entry.getValue());
@@ -105,18 +96,12 @@ public class Example{
           setString(getTenthDic(reminder));
         }else{
           setString(getBigDic(reminder));
-
         }
         break;
-
       }
 
     }// end of for
-
-    //System.out.println(digitToString);
     return "";
-
-
   }
 
   private String getTenthDic(int num){
@@ -151,7 +136,7 @@ public class Example{
   public void printDigit(){
     System.out.println(digitToString);
   }
-  
+
   private String mapIterator(Map <Integer, String>map, int num){
     for (Map.Entry<Integer,String> entry : map.entrySet()){
       if(num == entry.getKey()){
